@@ -4,7 +4,12 @@ Local-first web app that generates a daily study schedule each morning, tracks
 completion, and rolls incomplete work forward with decay-aware rescheduling.
 All data lives in the browser (IndexedDB via Dexie) — no backend, works offline.
 
-**Live:** https://claude.ai/code/artifact/74a52c91-4ed7-4232-b32f-ce1b983e2b8f
+**Live (Claude artifact):** https://claude.ai/code/artifact/74a52c91-4ed7-4232-b32f-ce1b983e2b8f
+
+**Install on your phone:** https://1400130-collab.github.io/timetable/
+Open that link in Safari (iPhone) or Chrome (Android), then use
+"Add to Home Screen" / "Install app" from the browser menu. It runs fully
+offline after that — all data stays on-device in IndexedDB.
 
 ## Stack
 
@@ -43,4 +48,6 @@ npm run build    # typecheck + single-file bundle in dist/index.html
 ```
 
 `deploy/study-scheduler.html` is the artifact fragment (dist bundle minus the
-document shell) used for publishing.
+document shell) used for publishing. `docs/index.html` is a copy of the full
+standalone build (`phone-install/index.html`), served via GitHub Pages so it
+can be installed on a phone — regenerate both after `npm run build`.
