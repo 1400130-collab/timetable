@@ -42,11 +42,11 @@ export default function Onboarding() {
         {step === 0 && (
           <>
             <div className="grid grid-cols-2 gap-3">
-              <div>
+              <div className="min-w-0">
                 <label className="mb-1 block text-xs font-medium text-muted">I wake at</label>
                 <input type="time" className={input} value={wake} onChange={(e) => setWake(e.target.value)} />
               </div>
-              <div>
+              <div className="min-w-0">
                 <label className="mb-1 block text-xs font-medium text-muted">I sleep at</label>
                 <input type="time" className={input} value={sleep} onChange={(e) => setSleep(e.target.value)} />
               </div>

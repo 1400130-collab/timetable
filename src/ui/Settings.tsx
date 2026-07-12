@@ -140,27 +140,27 @@ export default function Settings() {
       <section className="space-y-3">
         <h2 className="text-sm font-semibold">Day shape</h2>
         <div className="grid grid-cols-2 gap-3">
-          <div>
+          <div className="min-w-0">
             <label className={label}>Wake</label>
             <input type="time" className={input} value={form.wake}
               onChange={(e) => setForm({ ...form, wake: e.target.value })} />
           </div>
-          <div>
+          <div className="min-w-0">
             <label className={label}>Sleep</label>
             <input type="time" className={input} value={form.sleep}
               onChange={(e) => setForm({ ...form, sleep: e.target.value })} />
           </div>
-          <div>
+          <div className="min-w-0">
             <label className={label}>Deep work block (min)</label>
             <input type="number" min={25} max={90} className={input} value={form.blockLengthMin}
               onChange={(e) => setForm({ ...form, blockLengthMin: Number(e.target.value) })} />
           </div>
-          <div>
+          <div className="min-w-0">
             <label className={label}>Break (min)</label>
             <input type="number" min={5} max={30} className={input} value={form.breakLengthMin}
               onChange={(e) => setForm({ ...form, breakLengthMin: Number(e.target.value) })} />
           </div>
-          <div>
+          <div className="min-w-0">
             <label className={label}>Energy peak</label>
             <select className={input} value={form.energyProfile}
               onChange={(e) => setForm({ ...form, energyProfile: e.target.value as 'morning' | 'evening' })}>
@@ -168,7 +168,7 @@ export default function Settings() {
               <option value="evening">Evening</option>
             </select>
           </div>
-          <div>
+          <div className="min-w-0">
             <label className={label}>Rest day</label>
             <select className={input} value={form.restDay}
               onChange={(e) => setForm({ ...form, restDay: Number(e.target.value) })}>
