@@ -1,0 +1,92 @@
+@import "tailwindcss";
+
+@theme inline {
+  --color-bg: var(--bg);
+  --color-surface: var(--surface);
+  --color-raised: var(--raised);
+  --color-ink: var(--ink);
+  --color-ink2: var(--ink2);
+  --color-muted: var(--muted);
+  --color-line: var(--line);
+  --color-accent: var(--accent);
+  --color-good: var(--good);
+  --color-bad: var(--bad);
+  --color-warn: var(--warn);
+}
+
+:root {
+  --bg: #f9f9f7;
+  --surface: #fcfcfb;
+  --raised: #f0efec;
+  --ink: #0b0b0b;
+  --ink2: #52514e;
+  --muted: #898781;
+  --line: #e1e0d9;
+  --accent: #2a78d6;
+  --good: #006300;
+  --bad: #d03b3b;
+  --warn: #b97e00;
+  /* subject series — validated categorical slots 1–4 (light) */
+  --c-math: #2a78d6;
+  --c-physics: #1baf7a;
+  --c-spanish: #eda100;
+  --c-english: #008300;
+  --grid: #e1e0d9;
+  --axis: #c3c2b7;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #0d0d0d;
+    --surface: #1a1a19;
+    --raised: #262624;
+    --ink: #ffffff;
+    --ink2: #c3c2b7;
+    --muted: #898781;
+    --line: #2c2c2a;
+    --accent: #3987e5;
+    --good: #0ca30c;
+    --bad: #e66767;
+    --warn: #fab219;
+    --c-math: #3987e5;
+    --c-physics: #199e70;
+    --c-spanish: #c98500;
+    --c-english: #008300;
+    --grid: #2c2c2a;
+    --axis: #383835;
+  }
+}
+
+/* Artifact viewer stamps data-theme on <html>; it must win over the media query. */
+:root[data-theme="light"] {
+  --bg: #f9f9f7; --surface: #fcfcfb; --raised: #f0efec;
+  --ink: #0b0b0b; --ink2: #52514e; --muted: #898781; --line: #e1e0d9;
+  --accent: #2a78d6; --good: #006300; --bad: #d03b3b; --warn: #b97e00;
+  --c-math: #2a78d6; --c-physics: #1baf7a; --c-spanish: #eda100; --c-english: #008300;
+  --grid: #e1e0d9; --axis: #c3c2b7;
+}
+:root[data-theme="dark"] {
+  --bg: #0d0d0d; --surface: #1a1a19; --raised: #262624;
+  --ink: #ffffff; --ink2: #c3c2b7; --muted: #898781; --line: #2c2c2a;
+  --accent: #3987e5; --good: #0ca30c; --bad: #e66767; --warn: #fab219;
+  --c-math: #3987e5; --c-physics: #199e70; --c-spanish: #c98500; --c-english: #008300;
+  --grid: #2c2c2a; --axis: #383835;
+}
+
+html, body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+  /* iOS standalone: kill rubber-band scroll and tap flashes. */
+  overscroll-behavior-y: none;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-text-size-adjust: 100%;
+}
+
+/* iOS zooms the page when focusing an input smaller than 16px. Force 16px on
+   phones so tapping a field never yanks the layout around. */
+@media (max-width: 640px) {
+  input, select, textarea { font-size: 16px; }
+}
+
+.tabular { font-variant-numeric: tabular-nums; }
