@@ -81,12 +81,31 @@ html, body {
   overscroll-behavior-y: none;
   -webkit-tap-highlight-color: transparent;
   -webkit-text-size-adjust: 100%;
+  /* Never let a stray wide element (native date/time pickers) push the whole
+     page sideways off a phone screen. */
+  max-width: 100%;
+  overflow-x: hidden;
 }
 
 /* iOS zooms the page when focusing an input smaller than 16px. Force 16px on
    phones so tapping a field never yanks the layout around. */
 @media (max-width: 640px) {
   input, select, textarea { font-size: 16px; }
+}
+
+/* WebKit gives native date/time/number inputs an intrinsic min-width that
+   ignores `width: 100%`, so in a 2-col grid they spill past the right edge.
+   Force them to shrink to their container. */
+input {
+  min-width: 0;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+input[type="time"],
+input[type="date"],
+input[type="datetime-local"] {
+  -webkit-appearance: none;
+  appearance: none;
 }
 
 .tabular { font-variant-numeric: tabular-nums; }
